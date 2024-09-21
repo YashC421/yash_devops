@@ -10,7 +10,7 @@
         function refreshPage() {
             setTimeout(function() {
                 location.reload();
-            }, 10000); // 5000 milliseconds = 5 seconds
+            }, 10000); // 10000 milliseconds = 10 seconds
         }
 </script>
 </head>
@@ -18,7 +18,7 @@
  
 <form action="action_page.php">
   <div class="container">
-    <h1>New user Register for DevOps Learning at Virtual TechBox by LTIMindtree.</h1>
+    <h1>New user Registration for DevOps Learning.</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
      
@@ -27,7 +27,7 @@
     <br>
     
     <label for="mobile"><b>Enter Mobile Number</b></label>
-    <input type="text" placeholder="Enter moible number" name="mobile" id="mobile" required>
+    <input type="text" placeholder="Enter mobile number" name="mobile" id="mobile" required>
     <br>
 
     <label for="email"><b>Enter Email</b></label>
@@ -49,7 +49,7 @@
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 
-   <h1> ThankYou So Much, Happy Learning </h1>
+   <h1> Thank You So Much, Happy Learning </h1>
    <h1> See You Again </h1>
   
 </form>
