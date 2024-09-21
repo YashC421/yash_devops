@@ -49,7 +49,8 @@
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 
-   <h1> Thank You So Much, Happy Learning </h1>
+   <h1> Thank You So Much,Happy Learning </h1>
+
 </form>
 </body>
 </html>
