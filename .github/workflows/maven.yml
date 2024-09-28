@@ -67,5 +67,5 @@ jobs:
     
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
-        run: docker push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+        run: docker push javaproject.azurecr.io/project:${{ github.sha }}
 
