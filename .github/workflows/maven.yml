@@ -52,7 +52,7 @@ jobs:
         path: /home/runner/work/yash_devops/yash_devops/webapp/target/*.war
         
     - name: Build Docker image
-      run: docker build . --file Dockerfile --tag ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+      run: docker build . --file Dockerfile --tag project-image
 
     
 
@@ -77,5 +77,5 @@ jobs:
     
       # Builds and pushes an image up to your Azure Container Registry
       - name: Push Docker image
-        run: docker push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+        run: docker push project-image
 
