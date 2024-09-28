@@ -13,6 +13,14 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  AZURE_CONTAINER_REGISTRY: "javaproject"
+  CONTAINER_NAME: "project"
+  RESOURCE_GROUP: "NetworkWatcherRG"
+  CLUSTER_NAME: "test-cluster"
+ 
+  
+  
 
 jobs:
   build:
@@ -42,9 +50,11 @@ jobs:
       with:
         name: build-artifacts
         path: /home/runner/work/yash_devops/yash_devops/webapp/target/*.war
+        
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --tag ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag project:latest
+    
 
   buildImage:
     permissions:
@@ -66,6 +76,6 @@ jobs:
    
     
       # Builds and pushes an image up to your Azure Container Registry
-      - name: Build and push image to ACR
-        run: docker push javaproject.azurecr.io/project:${{ github.sha }}
+      - name: Push Docker image
+        run: docker push ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
 
