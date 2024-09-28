@@ -44,7 +44,7 @@ jobs:
         path: /home/runner/work/yash_devops/yash_devops/webapp/target/*.war
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag project:latest
 
   buildImage:
     permissions:
