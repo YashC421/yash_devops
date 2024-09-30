@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-project-deploy
+  name: my-app-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: java-project
@@ -13,13 +13,7 @@ spec:
         app: java-project
     spec:
       containers:
-      - name: java-project-container
-        image: javaproject.azurecr.io/project:latest
-        imagePullPolicy: Always
+      - name: java-app-container
+        image: javaproject.azurecr.io/project:${{ github.sha }}
         ports:
         - containerPort: 8080
-    strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxSurge: 1
-          maxUnavailable: 1
