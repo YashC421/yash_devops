@@ -15,5 +15,9 @@ spec:
       containers:
       - name: java-app-container
         image: javaproject.azurecr.io/project:${{ github.sha }}
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
         ports:
-        - containerPort: 8080
+        - containerPort: 80
