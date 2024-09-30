@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: java-project-deploy
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: java-project
@@ -15,5 +15,11 @@ spec:
       containers:
       - name: java-project-container
         image: javaproject.azurecr.io/project:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxSurge: 1
+          maxUnavailable: 1
