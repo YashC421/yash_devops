@@ -24,7 +24,7 @@
   RESOURCE_GROUP: "NetworkWatcherRG"
   CLUSTER_RESOURCE_GROUP: "test-1"
   CLUSTER_NAME: "test-cluster"
-  MANIFEST_PATH: "./deployment.yml"
+  MANIFEST_PATH: "/deployment.yml"
 
  
  
