@@ -50,12 +50,7 @@ jobs:
       with:
         name: build-artifacts
         path: /home/runner/work/yash_devops/yash_devops/webapp/target/*.war
-        
-    - name: Build Docker image
-      run: docker build . --file Dockerfile --tag project-image
-
-    
-
+      
   buildImage:
     permissions:
       contents: read
@@ -74,4 +69,4 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag project:$(date +%s)
+        run: az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
