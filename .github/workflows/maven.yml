@@ -21,7 +21,7 @@
  env:
   AZURE_CONTAINER_REGISTRY: "javaproject"
   CONTAINER_NAME: "project"
-  RESOURCE_GROUP: "NetworkWatcherRG"
+  RESOURCE_GROUP: "test-1"
   CLUSTER_NAME: "test-cluster"
   MANIFEST_PATH: "./deployment.yml"
 
