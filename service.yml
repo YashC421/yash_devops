@@ -4,7 +4,8 @@ metadata:
   name: java-project-service
 spec:
   selector:
-    app: java-project type: LoadBalancer
+    app: java-project 
+    type: LoadBalancer
     
   ports:
     - port: 8080
