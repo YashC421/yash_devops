@@ -12,6 +12,7 @@ spec:
       labels:
         app: java-project
     spec:
+      progressDeadlineSeconds: 600
       containers:
       - name: java-project-container
         image: javaproject.azurecr.io/project:latest
