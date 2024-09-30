@@ -19,7 +19,7 @@
  
  
  env:
-  AZURE_CONTAINER_REGISTRY: "java-project"
+  AZURE_CONTAINER_REGISTRY: "javaproject"
   CONTAINER_NAME: "project"
   RESOURCE_GROUP: "NetworkWatcherRG"
   CLUSTER_NAME: "test-cluster"
