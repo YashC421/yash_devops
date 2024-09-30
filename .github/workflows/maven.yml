@@ -67,7 +67,7 @@
     - name: Set up kubelogin for non-interactive login
       uses: azure/use-kubelogin@v1
       with:
-          kubelogin-version: 'v0.0.25'
+          kubelogin-version: 'v1.29.8'
 
       # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
     - name: Get K8s context
@@ -83,7 +83,7 @@
       with:
           action: deploy
           manifests: 
-                  /deployment.yml
-                  /service.yml
+                  ./deployment.yml
+                  ./service.yml
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
