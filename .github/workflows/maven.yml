@@ -24,6 +24,7 @@
   RESOURCE_GROUP: "NetworkWatcherRG"
   CLUSTER_RESOURCE_GROUP: "test-1"
   CLUSTER_NAME: "test-cluster"
+  DEPLOYMENT_MANIFEST_PATH: "deployment.yml"
  
 
  
@@ -67,7 +68,7 @@
     - name: Set up kubelogin for non-interactive login
       uses: azure/use-kubelogin@v1
       with:
-          kubelogin-version: 'v1.29.8'
+          kubelogin-version: 'v0.0.25'
 
       # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
     - name: Get K8s context
@@ -82,8 +83,6 @@
       uses: Azure/k8s-deploy@v4
       with:
           action: deploy
-          manifests: 
-                  ./deployment.yml
-                  ./service.yml
+          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
